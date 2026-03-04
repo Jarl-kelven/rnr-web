@@ -1,0 +1,23 @@
+{
+  // "tailwindCSS.includeLanguages": {
+  //   "typescript": "javascript", // if you are using typescript
+  //   "typescriptreact": "javascript" // if you are using typescript with react
+  // },
+  "editor.quickSuggestions": {
+    "strings": true // forces VS Code to trigger completions when editing "string" content
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw\\.[^`]+`([^`]*)`", // tw.xxx<xxx>`...`
+    "tw\\(.*?\\).*?`([^`]*)" // tw(Component)<xxx>`...`
+  ],
+  "files.exclude": {
+    "certs": true,
+    "public": false,
+    "dist":true, // Hide the dist folder in the explorer
+    "build":true, // Hide the dist folder in the explorer
+    ".next": true, // Hide .next folder
+    "node_modules": true // Hide the node_modules folder in the explorer
+  },
+  "postman.settings.dotenv-detection-notification-visibility": false
+}
