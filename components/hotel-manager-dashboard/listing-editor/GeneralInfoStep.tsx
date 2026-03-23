@@ -2,14 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Text } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
-import { FormData } from "@/types/listings";
+import { ListingDataTypes } from "@/types/listings";
 import { CheckCircle2 } from "lucide-react";
 
 type Props = {
     onNext: () => void;
-    data: FormData;
-    updateData: (field: keyof FormData, value: unknown) => void
-};
+    data: ListingDataTypes;
+    updateData: <K extends keyof ListingDataTypes>(key: K, value: ListingDataTypes[K])=> void
+}
 
 export default function GeneralInfoStep({ onNext, data, updateData }: Props) {
     return (
