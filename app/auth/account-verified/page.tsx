@@ -34,7 +34,7 @@ export default function Page() {
               learning.
             </p>
             <Button
-              variant="default"
+               variant="default"
               type="submit"
               className="w-full bg-primary min-h-14 px-4 text-[16px] rounded-full font-semibold shadow mt-10 lg:mt-16"
             >
