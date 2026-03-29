@@ -23,7 +23,7 @@ const benefits = [
 
 export default function BenefitsSection() {
     return (
-        <section className="bg-muted py-24 md:py-32">
+        <section className="bg-muted flex items-center justify-center m-auto py-24 md:py-32">
             <div className="container text-center">
                 <h2 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
                     Complete Journey Solution

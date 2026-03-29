@@ -59,7 +59,7 @@ export default function TextTypewriter({
 
     return (
         <div className={cn("flex items-center justify-center min-h-[1.2em]", className)}>
-            <Text as="span" className="inline-block">
+            <Text as="span" className="inline-block text-primary-foreground/90">
                 {phrases[index].substring(0, subIndex)}
             </Text>
 

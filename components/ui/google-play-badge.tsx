@@ -30,8 +30,8 @@ export default function GooglePlayBadge({ theme = 'dark' }: { theme?: 'dark' | '
         <Link
             href="#"
             className={cn(
-                "flex h-14 items-center gap-3 rounded-xl px-5 transition-transform hover:scale-[1.03] active:scale-95",
-                theme === 'dark' ? "bg-black text-white" : "bg-white text-black border border-border"
+                "flex h-14 items-center gap-3 rounded-xl px-10 transition-transform hover:scale-[1.03] active:scale-95",
+                theme === 'dark' ? "bg-primary text-white" : "bg-white text-black border border-border"
             )}
         >
             <svg viewBox="0 0 512 512" width="24" height="24">

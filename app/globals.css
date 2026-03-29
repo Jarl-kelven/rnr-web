@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 /* @import "shadcn/tailwind.css"; */
@@ -68,6 +69,7 @@
   /* white/light */
   --foreground: oklch(0 0 0);
   /* black text on light bg */
+ 
 
   --primary: oklch(0.696 0.204 43);
   /* #FF6600 – your main brand color */
@@ -167,6 +169,8 @@
   --chart-4: oklch(0.90 0.15 70);
   --chart-5: oklch(0.94 0.10 80);
 }
+
+
 
 @layer base {
   * {

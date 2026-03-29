@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+
 import { Providers } from "./providers";
 import "./globals.css";
+import { Urbanist } from 'next/font/google';
 
+const urbanist = Urbanist({
+  subsets: ['latin'],
+  weight: ['300','400', '500', '700'],
+});
 
 export const metadata: Metadata = {
   title: "RideAndRest - Ride Safely. Rest Comfortably.",
@@ -15,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="antialiased bg-background text-foreground">
+    <html lang="en">
+      <body className={`${urbanist.className} antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
       </body>
     </html>

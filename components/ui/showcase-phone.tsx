@@ -21,13 +21,14 @@ export default function ShowcasePhone({ src, alt, delay = 0, className }: Showca
             style={{ animationDelay: `${delay}ms`, animationFillMode: 'both' }}
         >
             {/* Device Frame Wrapper */}
-            <div className="relative h-full w-full rounded-[2.5rem] border-[6px] border-foreground/10 bg-foreground/5 p-2 shadow-2xl overflow-hidden">
+            <div className="relative h-full w-full rounded-[2.5rem] border-[6px] border-olive-950 bg-foreground/5 p-2 shadow-2xl overflow-hidden">
                 <Image
                     src={src}
                     alt={alt}
                     fill
                     className="object-cover rounded-[2rem] hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 50vw, 25vw"
+                    
                 />
 
                 {/* Realistic Screen Glare */}

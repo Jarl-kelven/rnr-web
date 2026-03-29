@@ -3,6 +3,8 @@
 import FeatureItem from "@/components/ui/feature-item";
 import { ShieldCheck, MapPin, Zap, Star } from "lucide-react";
 
+
+
 const features = [
     { icon: ShieldCheck, text: "Verified Drivers" },
     { icon: MapPin, text: "Real-time Tracking" },
@@ -14,7 +16,7 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section className="bg-accent/10 py-24 md:py-32">
+        <section className="bg-accent/10 flex items-center justify-center py-24 md:py-32">
             <div className="container text-center">
                 <h2 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
                     Packed with Powerful Features
