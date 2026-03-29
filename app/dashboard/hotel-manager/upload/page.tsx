@@ -9,36 +9,55 @@ import GeneralInfoStep from "@/components/hotel-manager-dashboard/listing-editor
 import InventoryStep from "@/components/hotel-manager-dashboard/listing-editor/InventoryStep";
 import MediaStep from "@/components/hotel-manager-dashboard/listing-editor/MediaStep";
 import ReviewStep from "@/components/hotel-manager-dashboard/listing-editor/ReviewStep";
-import { FormData } from "@/types/listings";
+import { ListingDataTypes } from "@/types/listings";
+import { UseListings } from "@/context/ListingContect";
+import { showSuccess } from "@/components/ui/toasts";
+import { useRouter } from "next/navigation";
 
 
+
+const defaultFormValue: ListingDataTypes = {
+    id: "",
+    name: "",
+    type: "",
+    description: "",
+    price: "",
+    inventory: "",
+    images: [],
+    video: null,
+    tab: 'Draft',
+    status: 'Pending',
+}
 
 export default function UploadRoomPage() {
     const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState<FormData>({
-        name: "",
-        type: "",
-        description: "",
-        price: "",
-        inventory: "",
-        images: [{ url: "", primary: false, file: null }] ,
-        video: null,
-    });
-    
-    const updateData = (field: keyof FormData, value: unknown) => {
-        setFormData((prev) => ({ ...prev, [field]: value }));
-    };
+    const router = useRouter()
 
+    const { addLisiting } = UseListings();
     const [isPublishing, setIsPublishing] = useState(false);
+    const [formData, setFormData] = useState<ListingDataTypes>(defaultFormValue);
+
+    const updateData = <K extends keyof typeof formData>(key: K, value: (typeof formData)[K]) => {
+        setFormData((prev) => ({ ...prev, [key]: value }));
+    };
 
     const nextStep = () => setStep((s) => s + 1);
     const prevStep = () => setStep((s) => s - 1);
+
+    const sendListing = () => {
+        const l = { ...formData, id: Date.now().toString() }
+        addLisiting(l);
+        showSuccess("Listing sent Succefully");
+        setFormData(defaultFormValue);
+        router.back();
+        setIsPublishing(true)
+    };
 
     return (
         <div className="max-w-4xl mx-auto">
             <div className="mb-10">
                 <Text variant="h1" className="text-3xl mb-2">List New Room</Text>
-                <div/>
+                <div />
                 <Text variant="muted">Fill in the details to add a new room type to your hotel.</Text>
             </div>
 
@@ -76,9 +95,10 @@ export default function UploadRoomPage() {
                     updateData={updateData}
                 />}
                 {step === 4 && <ReviewStep
-                    onPublish={() => setIsPublishing(true)}
+                    onPublish={sendListing}
                     onBack={prevStep}
-                    formData={formData}
+                    data={formData}
+                    where="editor"
                 />}
             </Card>
         </div>

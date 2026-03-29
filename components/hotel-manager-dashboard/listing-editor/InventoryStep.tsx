@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Text } from "@/components/ui/text";
-import { FormData } from "@/types/listings";
+import { ListingDataTypes } from "@/types/listings";
 
 
 
-type Props = { onNext: () => void; onBack: () => void; data: FormData; updateData: (field: keyof FormData, value: unknown) => void };
+type Props = {
+    onNext: () => void;
+    onBack: () => void;
+    data: ListingDataTypes;
+    updateData: <K extends keyof ListingDataTypes>(key: K, value: ListingDataTypes[K]) => void
+};
 
 
 export default function InventoryStep({ onNext, onBack, data, updateData }: Props) {
